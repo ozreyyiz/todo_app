@@ -6,4 +6,4 @@ Color black = Colors.black;
 TextStyle barTextStyle = TextStyle(color: white);
 TextStyle dialogHeaderStyle =
     TextStyle(fontSize: 22, fontWeight: FontWeight.bold);
-    Color scaffoldBackgroundColor=Colors.black;
+    Color scaffoldBackgroundColor=Color.fromARGB(255, 236, 239, 241);
