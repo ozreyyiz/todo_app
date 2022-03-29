@@ -3,6 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/constants.dart';
 import 'package:todo_app/model/todo.dart';
+import 'package:todo_app/page/edit_todo_page.dart';
 import 'package:todo_app/provide/todos.dart';
 import 'package:todo_app/utils.dart';
 
@@ -26,7 +27,7 @@ class TodoWidget extends StatelessWidget {
           children: [
             SlidableAction(
               backgroundColor: Colors.green,
-              onPressed: (_) => completeTodo(context, todo),
+              onPressed: (_) => editTodo(context,todo),
               label: "Edit",
               icon: Icons.edit,
             )
@@ -58,7 +59,7 @@ class TodoWidget extends StatelessWidget {
             activeColor: Theme.of(context).primaryColor,
             checkColor: white,
             value: todo.isDone,
-            onChanged: (_) {},
+            onChanged: (_) => completeTodo(context, todo),
           ),
           const SizedBox(width: 20),
           Expanded(
@@ -94,5 +95,14 @@ class TodoWidget extends StatelessWidget {
 
     Utils.showSnackBar(
         context, isDone ? "Text completed." : "Task marked incompleted.");
+  }
+
+  void editTodo(BuildContext context, Todo todo) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => EditTodoPage(
+                  todo: todo,
+                )));
   }
 }

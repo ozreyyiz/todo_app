@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/constants.dart';
 import 'package:todo_app/widgets/add_todo_dialog.dart';
+import 'package:todo_app/widgets/completed_list_widget.dart';
 import 'package:todo_app/widgets/todo_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final tabs = [
       TodoListWidget(),
-      Container(),
+      CompletedListWidget(),
     ];
     return Scaffold(
       backgroundColor: scaffoldBackgroundColor,
